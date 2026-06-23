@@ -1,0 +1,2 @@
+import "./App.css";
+export default function App(){return(<div className="container"><h1>💙 Xeloda Companion</h1><div className="card"><h2>Welcome, Suhana 🌸</h2><p>Your personal treatment companion.</p></div></div>);}
