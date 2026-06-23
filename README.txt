@@ -1,0 +1,1 @@
+Part 1C: Replace src/App.jsx and src/App.css with these versions.
