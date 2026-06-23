@@ -1,1 +1,1 @@
-Upload all files to the root of your GitHub repository.
+Replace all existing project files with these files.

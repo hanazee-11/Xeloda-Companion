@@ -1,18 +1,26 @@
-<!DOCTYPE html>
-<html><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="manifest" href="manifest.json">
-<link rel="stylesheet" href="style.css">
-<title>Xeloda Companion</title>
-</head><body>
+<!DOCTYPE html><html><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="manifest" href="manifest.json"><link rel="stylesheet" href="style.css">
+<title>Xeloda Companion</title></head><body>
 <div class="card">
 <h1>💙 Xeloda Companion</h1>
-<h2 id="status"></h2>
-<p id="cycle"></p>
+<h2 id="status"></h2><p id="cycle"></p>
 <div class="progress"><div id="fill"></div></div>
+
+<h3>Medication</h3>
 <label><input id="am" type="checkbox"> Morning Xeloda</label><br>
-<label><input id="pm" type="checkbox"> Evening Xeloda</label>
+<label><input id="pm" type="checkbox"> Evening Xeloda</label><br>
+<label><input id="lap" type="checkbox"> Lapatinib</label>
+
+<h3>Water</h3>
+<input id="water" type="number" min="0" max="20" placeholder="Glasses">
+
+<h3>Weight (kg)</h3>
+<input id="weight" type="number" step="0.1">
+
+<h3>Symptoms (0-10)</h3>
+<p>Fatigue <input id="fatigue" type="range" min="0" max="10"></p>
+<p>Bone Pain <input id="bone" type="range" min="0" max="10"></p>
+<p>Mouth Sores <input id="mouth" type="range" min="0" max="10"></p>
 </div>
-<script src="app.js"></script>
-</body></html>
+<script src="app.js"></script></body></html>
