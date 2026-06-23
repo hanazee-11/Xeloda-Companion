@@ -1,18 +1,40 @@
 <!DOCTYPE html><html><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="style.css"><title>Xeloda Companion v0.4</title></head><body>
-<div class="card">
-<h1>💙 Xeloda Companion v0.4</h1>
-<div id="summary"></div>
-<h3>📅 Cycle Calendar</h3>
-<div id="calendar" class="grid"></div>
+<link rel="stylesheet" href="style.css">
+<title>Xeloda Companion v0.5</title>
+</head><body>
+<div class="app">
+<header><h1>💙 Xeloda Companion</h1><p>Your treatment dashboard</p></header>
 
-<h3>📊 Progress</h3>
-<progress id="prog" max="100" value="0"></progress>
-<p id="pct"></p>
+<section class="card">
+<h2 id="title"></h2>
+<div class="progress"><div id="bar"></div></div>
+<p id="percent"></p>
+</section>
 
-<h3>🩺 Oncology Report</h3>
-<textarea id="report" rows="6" placeholder="Notes for your oncologist"></textarea>
-<button onclick="window.print()">Print Report</button>
+<section class="card">
+<h3>Today's Medication</h3>
+<label><input id="am" type="checkbox"> Morning Xeloda</label><br>
+<label><input id="pm" type="checkbox"> Evening Xeloda</label><br>
+<label><input id="lap" type="checkbox"> Lapatinib</label>
+</section>
+
+<section class="card">
+<h3>Symptoms</h3>
+<p>Fatigue <input id="fatigue" type="range" min="0" max="10"></p>
+<p>Bone pain <input id="bone" type="range" min="0" max="10"></p>
+<p>Mouth sores <input id="mouth" type="range" min="0" max="10"></p>
+<p>Hand-foot syndrome <input id="hfs" type="range" min="0" max="10"></p>
+</section>
+
+<section class="card">
+<h3>Health</h3>
+<input id="weight" type="number" step="0.1" placeholder="Weight (kg)">
+<input id="water" type="number" placeholder="Water (glasses)">
+<textarea id="notes" rows="4" placeholder="Daily notes"></textarea>
+</section>
+
+<footer>🏁 Final treatment: <b>15 Oct 2026</b></footer>
 </div>
-<script src="app.js"></script></body></html>
+<script src="app.js"></script>
+</body></html>

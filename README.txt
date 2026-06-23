@@ -1,1 +1,1 @@
-Replace all previous project files with this version.
+Final demo version. Upload all files to your GitHub repository.

@@ -1,8 +1,12 @@
-const s=new Date('2026-06-12'),e=new Date('2026-10-15'),t=new Date();
-const diff=Math.max(0,Math.floor((t-s)/86400000));const cycle=Math.min(6,Math.floor(diff/21)+1);const day=diff%21+1;
-document.getElementById('summary').innerHTML=`<h2>Cycle ${cycle} • Day ${day}</h2>`;
-const total=Math.floor((e-s)/86400000)+1;const pct=Math.min(100,Math.round(diff/total*100));
-document.getElementById('prog').value=pct;document.getElementById('pct').textContent=`${pct}% complete`;
-const cal=document.getElementById('calendar');
-for(let i=1;i<=21;i++){let d=document.createElement('div');d.className='day '+(i<=14?'on':'off')+(i===day?' today':'');d.textContent=i;cal.appendChild(d);}
-const r=document.getElementById('report');r.value=localStorage.getItem('report')||'';r.oninput=()=>localStorage.setItem('report',r.value);
+const S=new Date('2026-06-12'),E=new Date('2026-10-15'),T=new Date();
+const d=Math.max(0,Math.floor((T-S)/86400000)),cycle=Math.min(6,Math.floor(d/21)+1),day=d%21+1;
+const total=Math.floor((E-S)/86400000)+1,p=Math.min(100,Math.round(d/total*100));
+document.getElementById('title').textContent=`Cycle ${cycle} • Day ${day} ${day<=14?'🟢 ON':'⚪ OFF'}`;
+document.getElementById('bar').style.width=p+'%';
+document.getElementById('percent').textContent=`${p}% complete`;
+['am','pm','lap','fatigue','bone','mouth','hfs','weight','water','notes'].forEach(id=>{
+ let e=document.getElementById(id),v=localStorage.getItem(id);
+ if(v!==null){if(e.type==='checkbox')e.checked=v==='1';else e.value=v;}
+ let save=()=>localStorage.setItem(id,e.type==='checkbox'?(e.checked?'1':'0'):e.value);
+ e.oninput=save;e.onchange=save;
+});
