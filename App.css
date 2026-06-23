@@ -1,13 +1,1 @@
-
-body{margin:0;background:#eef4ff;font-family:-apple-system,sans-serif}
-.app{max-width:520px;margin:auto;padding:20px}
-.hero{background:#2b5fb8;color:#fff;padding:20px;border-radius:18px;margin-bottom:18px}
-.card{background:#fff;border-radius:18px;padding:18px;box-shadow:0 8px 18px rgba(0,0,0,.08)}
-.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin:16px 0}
-.day{padding:12px;border-radius:12px;text-align:center;font-weight:600}
-.on{background:#d7f8de}
-.off{background:#ececec}
-.today{border:3px solid #2b5fb8}
-.legend{display:inline-block;width:16px;height:16px;border-radius:4px;margin-right:8px}
-.onbox{background:#d7f8de}
-.offbox{background:#ececec}
+body{margin:0;background:#eef4ff;font-family:-apple-system,sans-serif}.app{max-width:520px;margin:auto;padding:20px}.hero{background:linear-gradient(135deg,#2b5fb8,#5a8df0);color:#fff;padding:22px;border-radius:20px}.progress{height:12px;background:#ffffff55;border-radius:99px;overflow:hidden;margin:14px 0}.fill{height:100%;background:#7ef29a}.card{background:#fff;border-radius:18px;padding:18px;margin-top:16px;box-shadow:0 8px 18px rgba(0,0,0,.08)}
