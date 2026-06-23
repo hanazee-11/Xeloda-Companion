@@ -1,48 +1,47 @@
-
 import "./App.css";
 
-const START = new Date("2026-06-12");
-const TODAY = new Date();
+const START=new Date("2026-06-12");
+const TODAY=new Date();
+const diff=Math.max(0,Math.floor((TODAY-START)/(1000*60*60*24)));
+const cycle=Math.min(6,Math.floor(diff/21)+1);
+const day=(diff%21)+1;
 
-const diffDays = Math.max(
-  0,
-  Math.floor((TODAY - START) / (1000 * 60 * 60 * 24))
-);
+const days=[...Array(21)].map((_,i)=>({
+ day:i+1,
+ on:i<14
+}));
 
-const cycle = Math.min(6, Math.floor(diffDays / 21) + 1);
-const day = (diffDays % 21) + 1;
-const onTreatment = day <= 14;
-const progress = Math.min(100, Math.round((diffDays / (21 * 6)) * 100));
+export default function App(){
+return(
+<div className="app">
+<h1>💙 Xeloda Companion</h1>
 
-export default function App() {
-  return (
-    <div className="app">
-      <h1>💙 Xeloda Companion</h1>
+<div className="hero">
+<h2>Cycle {cycle}</h2>
+<p>Day {day} of 21</p>
+</div>
 
-      <div className="hero">
-        <h2>Cycle {cycle} • Day {day}</h2>
-        <p>{onTreatment ? "🟢 ON Medication" : "⚪ OFF Week"}</p>
+<div className="card">
+<h3>This Cycle</h3>
 
-        <div className="progress">
-          <div className="fill" style={{width: progress + "%"}}></div>
-        </div>
+<div className="calendar">
+{days.map(d=>
+<div
+key={d.day}
+className={
+"day "+
+(d.on?"on ":"off ")+
+(d.day===day?"today":"")
+}>
+{d.day}
+</div>
+)}
+</div>
 
-        <p>{progress}% Complete</p>
-      </div>
+<p><span className="legend onbox"></span> ON Medication</p>
+<p><span className="legend offbox"></span> OFF Week</p>
 
-      <div className="card">
-        <h3>Today's Tasks</h3>
-        <ul>
-          <li>💊 Morning dose</li>
-          <li>🌙 Evening dose</li>
-          <li>💧 Drink water</li>
-        </ul>
-      </div>
+</div>
 
-      <div className="card">
-        <h3>Countdown</h3>
-        <p>Final treatment date: <strong>15 October 2026</strong></p>
-      </div>
-    </div>
-  );
-}
+</div>
+)}
