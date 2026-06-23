@@ -1,1 +1,1 @@
-Replace all existing project files with these files.
+Replace all files in your repository with this version.

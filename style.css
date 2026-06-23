@@ -1,5 +1,6 @@
 body{font-family:-apple-system,Arial;background:#eef4ff;padding:20px}
-.card{max-width:460px;margin:auto;background:#fff;border-radius:18px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,.1)}
-.progress{height:10px;background:#ddd;border-radius:8px;margin:14px 0}
-#fill{height:10px;background:#4caf50;border-radius:8px;width:0}
-input[type=number]{width:100%;padding:10px;margin-bottom:10px}
+.card{max-width:480px;margin:auto;background:#fff;padding:20px;border-radius:18px;box-shadow:0 6px 18px rgba(0,0,0,.1)}
+.progress{height:10px;background:#ddd;border-radius:10px;margin:12px 0}
+#fill{height:10px;background:#4caf50;border-radius:10px}
+input,textarea{width:100%;margin:8px 0;padding:10px;box-sizing:border-box}
+button{width:100%;padding:12px;background:#2b5fb8;color:#fff;border:none;border-radius:12px}
