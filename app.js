@@ -1,0 +1,12 @@
+const start=new Date('2026-06-12');
+const end=new Date('2026-10-15');
+const today=new Date();
+const diff=Math.max(0,Math.floor((today-start)/86400000));
+const cycle=Math.min(6,Math.floor(diff/21)+1);
+const day=(diff%21)+1;
+const on=day<=14;
+document.getElementById('status').textContent=on?'🟢 ON Medication':'⚪ OFF Week';
+document.getElementById('cycle').textContent=`Cycle ${cycle} • Day ${day}`;
+const total=Math.floor((end-start)/86400000)+1;
+document.getElementById('fill').style.width=Math.min(100,Math.round(diff/total*100))+'%';
+['am','pm'].forEach(id=>{const e=document.getElementById(id);e.checked=localStorage.getItem(id)==='1';e.onchange=()=>localStorage.setItem(id,e.checked?'1':'0');});
