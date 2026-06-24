@@ -1,12 +1,46 @@
-const S=new Date('2026-06-12'),E=new Date('2026-10-15'),T=new Date();
-const d=Math.max(0,Math.floor((T-S)/86400000)),cycle=Math.min(6,Math.floor(d/21)+1),day=d%21+1;
-const total=Math.floor((E-S)/86400000)+1,p=Math.min(100,Math.round(d/total*100));
-document.getElementById('title').textContent=`Cycle ${cycle} • Day ${day} ${day<=14?'🟢 ON':'⚪ OFF'}`;
-document.getElementById('bar').style.width=p+'%';
-document.getElementById('percent').textContent=`${p}% complete`;
-['am','pm','lap','fatigue','bone','mouth','hfs','weight','water','notes'].forEach(id=>{
- let e=document.getElementById(id),v=localStorage.getItem(id);
- if(v!==null){if(e.type==='checkbox')e.checked=v==='1';else e.value=v;}
- let save=()=>localStorage.setItem(id,e.type==='checkbox'?(e.checked?'1':'0'):e.value);
- e.oninput=save;e.onchange=save;
-});
+
+function todayKey(){return new Date().toISOString().slice(0,10);}
+
+function saveDailyReport(){
+const report={
+date:todayKey(),
+am:document.getElementById("am")?.checked||false,
+pm:document.getElementById("pm")?.checked||false,
+lap:document.getElementById("lap")?.checked||false,
+fatigue:document.getElementById("fatigue")?.value||"",
+bone:document.getElementById("bone")?.value||"",
+mouth:document.getElementById("mouth")?.value||"",
+hfs:document.getElementById("hfs")?.value||"",
+weight:document.getElementById("weight")?.value||"",
+water:document.getElementById("water")?.value||"",
+notes:document.getElementById("notes")?.value||""
+};
+localStorage.setItem("report_"+todayKey(),JSON.stringify(report));
+alert("Today's report saved.");
+}
+
+function viewDailyReport(){
+const txt=document.getElementById("dailyReport");
+const raw=localStorage.getItem("report_"+todayKey());
+if(!raw){txt.textContent="No report saved for today.";return;}
+const r=JSON.parse(raw);
+txt.textContent=`Date: ${r.date}
+
+Morning Xeloda: ${r.am?"✓":"✗"}
+Evening Xeloda: ${r.pm?"✓":"✗"}
+Lapatinib: ${r.lap?"✓":"✗"}
+
+Fatigue: ${r.fatigue}/10
+Bone Pain: ${r.bone}/10
+Mouth Sores: ${r.mouth}/10
+Hand-Foot: ${r.hfs}/10
+
+Weight: ${r.weight} kg
+Water: ${r.water} glasses
+
+Notes:
+${r.notes}`;
+}
+
+document.getElementById("saveDay")?.addEventListener("click",saveDailyReport);
+document.getElementById("viewDay")?.addEventListener("click",viewDailyReport);
